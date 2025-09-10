@@ -1,12 +1,7 @@
-const container = document.getElementById('container');
+const container = document.querySelector("#container");
 
-function makeDivs(num) {
-    for (let d =0; d<num; d++) {
-        let cells = document.createElement('div');
-        container.appendChild(cells)
-    }
-    
-}
+const row = document.createElement("div");
+row.classList.add("row");
+row.textContent = " ";
+container.appendChild(row);
 
-
-makeDivs(256);

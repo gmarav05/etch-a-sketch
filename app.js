@@ -28,7 +28,7 @@ function createGrid(input) {
     row.style.height = `${cellSize}px`;
 
     row.addEventListener("mouseenter", () => {
-      row.style.backgroundColor = "yellow";
+      row.style.backgroundColor = "black";
     });
     container.appendChild(row);
   }

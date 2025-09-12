@@ -1,49 +1,35 @@
 const container = document.querySelector("#container");
-const button = document.querySelector('button');
+const button = document.querySelector("button");
 
 let input = 16;
 
 button.addEventListener("click", () => {
-   let userInput = prompt("Grid size");
-   createGrid(input);
-        input = parseInt(userInput);
+  let userInput = prompt("Grid size");
+  createGrid(input);
+  input = parseInt(userInput);
 
-        if (input > 100) {
-          alert("Grid should be less than 100");
-        } else {
-               createGrid(input);
-        }
-
+  if (input > 100) {
+    alert("Grid should be less than 100");
+  } else {
+    createGrid(input);
+  }
 });
 
 createGrid(16);
 
-
 function createGrid(input) {
+  container.textContent = "";
+  const cellSize = 500 / input;
 
-        for (let index = 1; index <=input; index++) {
+  for (let i = 0; i < input * input; i++) {
+    const row = document.createElement("div");
+    row.classList.add("column");
+    row.style.width = `${cellSize}px`;
+    row.style.height = `${cellSize}px`;
 
-            const row = document.createElement("div");
-            row.classList.add("row");
-            row.textContent = " ";
-
-            for (let index = 1; index <=input; index++) {
-
-                const column = document.createElement("div");
-                column.classList.add("column");
-                column.textContent = " ";
-                column.addEventListener('mouseenter', () => {
-                    column.style.backgroundColor = 'blue'
-                });
-                container.appendChild(column);
-
-            }
-
-            row.addEventListener('mouseenter', () => {
-                row.style.backgroundColor = 'blue'
-            });
-
-            container.appendChild(row);
-
-        }   
+    row.addEventListener("mouseenter", () => {
+      row.style.backgroundColor = "yellow";
+    });
+    container.appendChild(row);
+  }
 }
